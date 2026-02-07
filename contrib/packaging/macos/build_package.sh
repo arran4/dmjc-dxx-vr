@@ -31,7 +31,8 @@ build_app() {
     srcdir="${name:0:2}"
     contents="${prettyname}.app/Contents"
 
-    zipfilename="${name}-${version}-mac.zip"
+    arch=$(uname -m)
+    zipfilename="${name}-${version}-mac-${arch}.zip"
 
     mkdir -p $contents/MacOS
     mkdir -p $contents/Resources
@@ -56,7 +57,14 @@ build_app() {
     zip -r -X ${zipfilename} ${prettyname}.app
 }
 
-build_app "buildd1/main" "d1x-redux" "D1X-Redux" "DCNT"
-build_app "buildd2/main" "d2x-redux" "D2X-Redux" "DCT2"
+if [ -d "buildd1" ]; then
+    build_app "buildd1/main" "d1x-redux" "D1X-Redux" "DCNT"
+fi
+if [ -d "buildd2" ]; then
+    build_app "buildd2/main" "d2x-redux" "D2X-Redux" "DCT2"
+fi
+if [ -d "buildd2-vr" ]; then
+    build_app "buildd2-vr/main" "d2x-redux" "D2X-Redux-VR" "DCT2"
+fi
 
 # Clean up
