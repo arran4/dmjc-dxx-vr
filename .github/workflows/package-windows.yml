@@ -63,3 +63,4 @@ jobs:
         with:
           name: windows
           path: '*.zip'
+          retention-days: 5

@@ -45,3 +45,4 @@ jobs:
         with:
           name: linux
           path: '*.tar.gz'
+          retention-days: 5

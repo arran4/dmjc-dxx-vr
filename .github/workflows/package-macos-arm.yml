@@ -48,3 +48,4 @@ jobs:
         with:
           name: macos-arm
           path: '*.zip'
+          retention-days: 5
