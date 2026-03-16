@@ -50,3 +50,4 @@ jobs:
         with:
           name: macos
           path: '*.zip'
+          retention-days: 5

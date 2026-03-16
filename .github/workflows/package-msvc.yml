@@ -58,3 +58,4 @@ jobs:
       with:
         name: msvc-${{ matrix.arch }}
         path: 'buildd?/main/*.*'
+        retention-days: 5
